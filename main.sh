@@ -1,6 +1,5 @@
-
 #!/usr/bin/env bash
-src="pagerank-push-vs-pull"
+src="pagerank-handle-dead-ends"
 out="/home/resources/Documents/subhajit/$src.log"
 ulimit -s unlimited
 printf "" > "$out"
