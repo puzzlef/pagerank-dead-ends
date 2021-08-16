@@ -10,3 +10,7 @@
 #include "deadEnds.hxx"
 #include "pagerank.hxx"
 #include "pagerankPlain.hxx"
+#include "pagerankTeleport.hxx"
+#include "pagerankLoop.hxx"
+#include "pagerankLoopAll.hxx"
+#include "pagerankRemove.hxx"

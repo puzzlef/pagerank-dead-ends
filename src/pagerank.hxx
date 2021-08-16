@@ -26,6 +26,9 @@ struct PagerankResult {
   int   iterations;
   float time;
 
+  PagerankResult(vector<T>&& ranks, int iterations=0, float time=0) :
+  ranks(ranks), iterations(iterations), time(time) {}
+
   PagerankResult(vector<T>& ranks, int iterations=0, float time=0) :
   ranks(move(ranks)), iterations(iterations), time(time) {}
 };

@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <unordered_set>
 #include "_main.hxx"
 #include "copy.hxx"
 #include "transpose.hxx"
@@ -8,6 +9,7 @@
 #include "pagerankPlain.hxx"
 
 using std::vector;
+using std::unordered_set;
 
 
 
@@ -35,16 +37,15 @@ template <class G, class T=float>
 PagerankResult<T> pagerankRemove(const G& x, const vector<T> *q=nullptr, PagerankOptions<T> o={}) {
   T p = o.damping;
   // remove dead ends
-  auto y  = copy(x);
   auto ks = deadEnds(x);
-  for (int u : ks)
-    y.removeVertex(u);
+  unordered_set<int> ku(ks.begin(), ks.end());
+  auto y  = copy(x, [&](int u) { return ku.count(u)==0; });
   auto yt = transposeWithDegree(y);
   // find plain pagerank
   auto a  = pagerankPlain(yt, q, o);
   // calculate ranks of dead ends
   a.time += measureDuration([&] { pagerankRemoveCalculate(a.ranks, y, yt, ks, p); }, o.repeat);
-  multiplyValue(a.ranks, T(1)/sum(a.ranks));
+  multiplyValue(a.ranks, a.ranks, T(1)/sum(a.ranks));
   a.iterations++;
   return a;
 }

@@ -25,7 +25,7 @@ void pagerankFactor(vector<T>& a, const vector<int>& vdata, int i, int n, T p) {
 template <class T>
 void pagerankCalculate(vector<T>& a, const vector<T>& c, const vector<int>& vfrom, const vector<int>& efrom, int i, int n, T c0) {
   for (int v=i; v<i+n; v++)
-    a[v] = c0 + sumAt(c, slice(efrom, vfrom[v], vfrom[v+1]));
+    a[v] = c0 + sumAt(c, sliceIter(efrom, vfrom[v], vfrom[v+1]));
 }
 
 
