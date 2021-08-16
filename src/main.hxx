@@ -9,4 +9,4 @@
 #include "transpose.hxx"
 #include "deadEnds.hxx"
 #include "pagerank.hxx"
-#include "pagerankMonolithic.hxx"
+#include "pagerankPlain.hxx"

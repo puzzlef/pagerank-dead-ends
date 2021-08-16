@@ -13,12 +13,3 @@ auto deadEnds(const G& x) {
     if (x.degree(u)==0) a.push_back(u);
   return a;
 }
-
-
-
-
-template <class G>
-void loopDeadEnds(G& a) {
-  for (int u : a.vertices())
-    if (a.degree(u)==0) a.addEdge(u, u);
-}
