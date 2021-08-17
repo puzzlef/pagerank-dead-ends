@@ -15,13 +15,13 @@ using std::unordered_set;
 
 
 template <class G, class H, class J, class T>
-void pagerankRemoveCalculate(vector<T>& a, const G& y, const H& yt, const J& ks, T p) {
-  int N = y.order();
-  T  c0 = (1-p)/N;
+void pagerankRemoveCalculate(vector<T>& a, const G& xr, const H& xt, const J& ks, T p) {
+  a.resize(xt.span());  // ensure bounds!
+  int N = coalesce(xr.order(), 1);  // can be empty!
   for (int u : ks) {
-    a[u] = c0;
-    for (int v : yt.edges(u))
-      a[u] += (p/y.degree(v)) * a[v];
+    a[u] = (1-p)/N;
+    for (int v : xt.edges(u))
+      a[u] += (p/coalesce(xr.degree(v), 1)) * a[v];  // degree can be 0!
   }
 }
 
@@ -36,16 +36,11 @@ void pagerankRemoveCalculate(vector<T>& a, const G& y, const H& yt, const J& ks,
 template <class G, class T=float>
 PagerankResult<T> pagerankRemove(const G& x, const vector<T> *q=nullptr, PagerankOptions<T> o={}) {
   T p = o.damping;
-  // remove dead ends
+  auto xr = copy(x, [&](int u) { return !isDeadEnd(x, u); });
+  auto a  = pagerankPlain(xr, q, o);
+  auto xt = transposeWithDegree(x);
   auto ks = deadEnds(x);
-  unordered_set<int> ku(ks.begin(), ks.end());
-  auto y  = copy(x, [&](int u) { return ku.count(u)==0; });
-  auto yt = transposeWithDegree(y);
-  // find plain pagerank
-  auto a  = pagerankPlain(yt, q, o);
-  // calculate ranks of dead ends
-  a.time += measureDuration([&] { pagerankRemoveCalculate(a.ranks, y, yt, ks, p); }, o.repeat);
-  multiplyValue(a.ranks, a.ranks, T(1)/sum(a.ranks));
-  a.iterations++;
+  a.time += measureDuration([&] { pagerankRemoveCalculate(a.ranks, xr, xt, ks, p); }, o.repeat);
+  multiplyValue(a.ranks, a.ranks, T(1)/coalesce(sum(a.ranks), T(1)));
   return a;
 }

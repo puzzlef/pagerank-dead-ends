@@ -9,6 +9,7 @@ using std::vector;
 using std::unordered_map;
 using std::iterator_traits;
 using std::hash;
+using std::any_of;
 using std::find;
 using std::find_if;
 using std::lower_bound;
@@ -16,6 +17,22 @@ using std::count;
 using std::count_if;
 using std::set_difference;
 using std::back_inserter;
+
+
+
+
+// ANY-OF
+// ------
+
+template <class I, class F>
+auto anyOf(I ib, I ie, F fn) {
+  return any_of(ib, ie, fn);
+}
+
+template <class J, class F>
+auto anyOf(const J& x, F fn) {
+  return any_of(x.begin(), x.end(), fn);
+}
 
 
 

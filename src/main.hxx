@@ -7,6 +7,7 @@
 #include "mtx.hxx"
 #include "copy.hxx"
 #include "transpose.hxx"
+#include "selfLoop.hxx"
 #include "deadEnds.hxx"
 #include "pagerank.hxx"
 #include "pagerankPlain.hxx"
