@@ -5,6 +5,8 @@
 #include "vertices.hxx"
 #include "edges.hxx"
 #include "csr.hxx"
+#include "transpose.hxx"
+#include "dynamic.hxx"
 #include "pagerank.hxx"
 
 using std::vector;
@@ -44,32 +46,56 @@ int pagerankPlainLoop(vector<T>& a, vector<T>& r, vector<T>& c, const vector<T>&
 }
 
 
-// Find pagerank using a single thread (pull, CSR).
-// @param xt transpose graph, with vertex-data=out-degree
-// @param q initial ranks (optional)
-// @param o options {damping=0.85, tolerance=1e-6, maxIterations=500}
-// @returns {ranks, iterations, time}
-template <class H, class F, class T=float>
-PagerankResult<T> pagerankPlain(const H& xt, F floop, const vector<T> *q=nullptr, PagerankOptions<T> o={}) {
+template <class H, class J, class FL, class T=float>
+PagerankResult<T> pagerankPlainCore(const H& xt, const J& ks, int i, int n, FL fl, const vector<T> *q, PagerankOptions<T> o) {
   T    p = o.damping;
   T    E = o.tolerance;
   int  L = o.maxIterations, l;
-  auto vfrom = sourceOffsets(xt);
-  auto efrom = destinationIndices(xt);
-  auto vdata = vertexData(xt);
+  auto vfrom = sourceOffsets(xt, ks);
+  auto efrom = destinationIndices(xt, ks);
+  auto vdata = vertexData(xt, ks);
   int  N     = xt.order();
   vector<T> a(N), r(N), c(N), f(N);
   float t = measureDurationMarked([&](auto mark) {
     fill(a, T());
-    if (q) r = compressContainer(xt, *q);
+    if (q) r = compressContainer(xt, *q, ks);
     else fill(r, T(1)/N);
     mark([&] { pagerankFactor(f, vdata, 0, N, p); });
-    mark([&] { l = floop(a, r, c, f, vfrom, efrom, vdata, 0, N, N, p, E, L); });
+    mark([&] { l = fl(a, r, c, f, vfrom, efrom, vdata, i, n, N, p, E, L); });
   }, o.repeat);
-  return {decompressContainer(xt, a), l, t};
+  return {decompressContainer(xt, a, ks), l, t};
 }
 
-template <class H, class T=float>
-PagerankResult<T> pagerankPlain(const H& xt, const vector<T> *q=nullptr, PagerankOptions<T> o={}) {
-  return pagerankPlain(xt, pagerankPlainLoop<T>, q, o);
+
+
+
+// Find pagerank using a single thread (pull, CSR).
+// @param x original graph
+// @param q initial ranks (optional)
+// @param o options {damping=0.85, tolerance=1e-6, maxIterations=500}
+// @returns {ranks, iterations, time}
+template <class G, class FL, class T=float>
+PagerankResult<T> pagerankPlain(const G& x, FL fl, const vector<T> *q=nullptr, PagerankOptions<T> o={}) {
+  int  N  = x.order();
+  auto xt = transposeWithDegree(x);
+  return pagerankPlainCore(xt, xt.vertices(), 0, N, fl, q, o);
+}
+
+template <class G, class T=float>
+PagerankResult<T> pagerankPlain(const G& x, const vector<T> *q=nullptr, PagerankOptions<T> o={}) {
+  return pagerankPlain(x, pagerankPlainLoop<T>, q, o);
+}
+
+
+template <class G, class FD, class FL, class T=float>
+PagerankResult<T> pagerankPlainDynamic(const G& x, const G& y, FD fd, FL fl, const vector<T> *q=nullptr, PagerankOptions<T> o={}) {
+  auto [aff, org] = fd(x, y);
+  int   n = aff.size(); append(aff, org);
+  auto yt = transposeWithDegree(y);
+  return pagerankPlainCore(yt, aff, 0, n, fl, q, o);
+}
+
+template <class G, class T=float>
+PagerankResult<T> pagerankPlainDynamic(const G& x, const G& y, const vector<T> *q=nullptr, PagerankOptions<T> o={}) {
+  return pagerankPlainDynamic(x, y, dynamicVertices, pagerankPlainLoop<T>, q, o);
 }

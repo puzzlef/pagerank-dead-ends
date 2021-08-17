@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
 #include "_main.hxx"
-#include "copy.hxx"
-#include "transpose.hxx"
+#include "selfLoop.hxx"
+#include "deadEnds.hxx"
 #include "pagerank.hxx"
 #include "pagerankPlain.hxx"
 
@@ -18,12 +18,14 @@ using std::vector;
 // @returns {ranks, iterations, time}
 template <class G, class T=float>
 PagerankResult<T> pagerankLoopAll(const G& x, const vector<T> *q=nullptr, PagerankOptions<T> o={}) {
-  T p = o.damping;
-  // add self loops
-  auto y  = copy(x);
-  for (int u : x.vertices())
-    y.addEdge(u, u);
-  auto yt = transposeWithDegree(y);
-  // find plain pagerank
-  return pagerankPlain(yt, q, o);
+  auto xl = selfLoop(x, [&](int u) { return true; });
+  return pagerankPlain(xl, q, o);
+}
+
+
+template <class G, class T=float>
+PagerankResult<T> pagerankLoopAllDynamic(const G& x, const G& y, const vector<T> *q=nullptr, PagerankOptions<T> o={}) {
+  auto xl = selfLoop(x, [&](int u) { return true; });
+  auto yl = selfLoop(y, [&](int u) { return true; });
+  return pagerankPlainDynamic(xl, yl, q, o);
 }
