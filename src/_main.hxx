@@ -4,5 +4,6 @@
 #include "_ctypes.hxx"
 #include "_iostream.hxx"
 #include "_iterator.hxx"
+#include "_string.hxx"
 #include "_utility.hxx"
 #include "_vector.hxx"

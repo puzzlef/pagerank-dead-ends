@@ -13,8 +13,8 @@ using std::vector;
 
 template <class G, class F>
 void dfsDoLoop(vector<bool>& vis, const G& x, int u, F fn) {
-  vis[u] = true;
-  fn(u);
+  if (vis[u]) return;  // dont visit if done already!
+  vis[u] = true; fn(u);
   for (int v : x.edges(u))
     if (!vis[v]) dfsDoLoop(vis, x, v, fn);
 }
@@ -48,6 +48,7 @@ auto dfs(const G& x, int u) {
 
 template <class G, class F>
 void dfsEndDoLoop(vector<bool>& vis, const G& x, int u, F fn) {
+  if (vis[u]) return;  // dont visit if done already!
   vis[u] = true;
   for (int v : x.edges(u))
     if (!vis[v]) dfsEndDoLoop(vis, x, v, fn);

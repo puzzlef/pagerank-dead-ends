@@ -19,3 +19,17 @@ struct None {
 };
 #define NONE None
 #endif
+
+
+
+
+// TEMPLATE-TYPE
+// -------------
+// For template classes in template :).
+
+#ifndef tclass0
+#define tclass0 template <> class
+#define tclass1 template <class> class
+#define tclass2 template <class, class> class
+#define tclass3 template <class, class, class> class
+#endif
