@@ -76,7 +76,7 @@ void affectedVerticesForEach(const G& x, const G& y, F fn) {
   auto visx = createContainer(x, bool());
   auto visy = createContainer(y, bool());
   auto fny  = [&](int u) { if (u>=visx.size() || !visx[u]) fn(u); };  // check bounds!
-  changedVerticesForEach(x, y, [&](int u) { dfsDoLoop(visx, x, u, fn); });
+  changedVerticesForEach(x, y, [&](int u) { if (x.hasVertex(u)) dfsDoLoop(visx, x, u, fn); });
   changedVerticesForEach(x, y, [&](int u) { dfsDoLoop(visy, y, u, fny); });
 }
 
