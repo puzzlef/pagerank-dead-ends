@@ -1,146 +1,146 @@
 Loading graph /home/subhajit/data/min-1DeadEnd.mtx ...
 order: 5 size: 6 {}
-[00000.005 ms; 017 iters.] [0.0000e+00 err.] pagerankTeleport
+[00000.002 ms; 017 iters.] [0.0000e+00 err.] pagerankTeleport
 [00000.000 ms; 004 iters.] [8.2584e-01 err.] pagerankLoop
 [00000.002 ms; 020 iters.] [6.1064e-01 err.] pagerankLoopAll
-[00000.000 ms; 005 iters.] [5.2956e-01 err.] pagerankRemove
+[00000.000 ms; 004 iters.] [2.0117e-07 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/min-2SCC.mtx ...
 order: 8 size: 12 {}
 [00000.006 ms; 040 iters.] [0.0000e+00 err.] pagerankTeleport
 [00000.005 ms; 040 iters.] [0.0000e+00 err.] pagerankLoop
 [00000.004 ms; 032 iters.] [1.3044e-01 err.] pagerankLoopAll
-[00000.005 ms; 041 iters.] [0.0000e+00 err.] pagerankRemove
+[00000.005 ms; 040 iters.] [0.0000e+00 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/min-4SCC.mtx ...
 order: 21 size: 35 {}
-[00000.012 ms; 045 iters.] [0.0000e+00 err.] pagerankTeleport
-[00000.010 ms; 045 iters.] [0.0000e+00 err.] pagerankLoop
-[00000.010 ms; 042 iters.] [1.2908e-01 err.] pagerankLoopAll
-[00000.010 ms; 046 iters.] [0.0000e+00 err.] pagerankRemove
+[00000.017 ms; 045 iters.] [0.0000e+00 err.] pagerankTeleport
+[00000.012 ms; 045 iters.] [0.0000e+00 err.] pagerankLoop
+[00000.012 ms; 042 iters.] [1.2908e-01 err.] pagerankLoopAll
+[00000.012 ms; 045 iters.] [0.0000e+00 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/min-NvgraphEx.mtx ...
 order: 6 size: 10 {}
 [00000.003 ms; 024 iters.] [0.0000e+00 err.] pagerankTeleport
-[00000.002 ms; 017 iters.] [5.4568e-01 err.] pagerankLoop
+[00000.001 ms; 017 iters.] [5.4568e-01 err.] pagerankLoop
 [00000.002 ms; 019 iters.] [5.1380e-01 err.] pagerankLoopAll
-[00000.002 ms; 026 iters.] [1.0352e-01 err.] pagerankRemove
+[00000.002 ms; 025 iters.] [1.2850e-01 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/web-Stanford.mtx ...
 order: 281903 size: 2312497 {}
-[00392.942 ms; 063 iters.] [0.0000e+00 err.] pagerankTeleport
-[00360.802 ms; 063 iters.] [4.7640e-03 err.] pagerankLoop
-[00324.627 ms; 054 iters.] [1.1641e-01 err.] pagerankLoopAll
-[00362.737 ms; 064 iters.] [1.4523e-03 err.] pagerankRemove
+[00409.751 ms; 063 iters.] [0.0000e+00 err.] pagerankTeleport
+[00395.462 ms; 063 iters.] [4.7640e-03 err.] pagerankLoop
+[00355.871 ms; 054 iters.] [1.1641e-01 err.] pagerankLoopAll
+[00393.593 ms; 063 iters.] [1.5229e-03 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/web-BerkStan.mtx ...
 order: 685230 size: 7600595 {}
-[00913.868 ms; 064 iters.] [0.0000e+00 err.] pagerankTeleport
-[00832.301 ms; 064 iters.] [3.8283e-02 err.] pagerankLoop
-[00739.217 ms; 055 iters.] [1.2685e-01 err.] pagerankLoopAll
-[00827.525 ms; 065 iters.] [1.5069e-02 err.] pagerankRemove
+[00927.686 ms; 064 iters.] [0.0000e+00 err.] pagerankTeleport
+[00873.986 ms; 064 iters.] [3.8283e-02 err.] pagerankLoop
+[00762.155 ms; 055 iters.] [1.2685e-01 err.] pagerankLoopAll
+[00869.373 ms; 064 iters.] [1.7252e-02 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/web-Google.mtx ...
 order: 916428 size: 5105039 {}
-[01435.843 ms; 061 iters.] [0.0000e+00 err.] pagerankTeleport
-[01309.031 ms; 062 iters.] [5.9801e-01 err.] pagerankLoop
-[01188.093 ms; 054 iters.] [5.5541e-01 err.] pagerankLoopAll
-[01161.372 ms; 066 iters.] [1.7247e-01 err.] pagerankRemove
+[01518.997 ms; 061 iters.] [0.0000e+00 err.] pagerankTeleport
+[01417.382 ms; 062 iters.] [5.9801e-01 err.] pagerankLoop
+[01246.261 ms; 054 iters.] [5.5541e-01 err.] pagerankLoopAll
+[01269.111 ms; 065 iters.] [1.9368e-01 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/web-NotreDame.mtx ...
 order: 325729 size: 1497134 {}
-[00225.607 ms; 058 iters.] [0.0000e+00 err.] pagerankTeleport
-[00175.990 ms; 053 iters.] [8.8201e-01 err.] pagerankLoop
-[00146.993 ms; 045 iters.] [8.5365e-01 err.] pagerankLoopAll
-[00128.188 ms; 065 iters.] [3.0742e-01 err.] pagerankRemove
+[00224.527 ms; 058 iters.] [0.0000e+00 err.] pagerankTeleport
+[00178.565 ms; 053 iters.] [8.8201e-01 err.] pagerankLoop
+[00148.372 ms; 045 iters.] [8.5365e-01 err.] pagerankLoopAll
+[00135.186 ms; 064 iters.] [5.7150e-01 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/soc-Slashdot0811.mtx ...
 order: 77360 size: 905468 {}
-[00090.871 ms; 055 iters.] [0.0000e+00 err.] pagerankTeleport
-[00085.243 ms; 056 iters.] [3.0527e-03 err.] pagerankLoop
-[00085.059 ms; 056 iters.] [3.0707e-03 err.] pagerankLoopAll
-[00083.683 ms; 056 iters.] [8.8757e-04 err.] pagerankRemove
+[00092.067 ms; 055 iters.] [0.0000e+00 err.] pagerankTeleport
+[00088.893 ms; 056 iters.] [3.0527e-03 err.] pagerankLoop
+[00088.365 ms; 056 iters.] [3.0707e-03 err.] pagerankLoopAll
+[00087.027 ms; 055 iters.] [7.5474e-04 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/soc-Slashdot0902.mtx ...
 order: 82168 size: 948464 {}
-[00099.721 ms; 056 iters.] [0.0000e+00 err.] pagerankTeleport
-[00098.316 ms; 058 iters.] [2.1351e-01 err.] pagerankLoop
-[00098.921 ms; 058 iters.] [2.1359e-01 err.] pagerankLoopAll
-[00092.232 ms; 057 iters.] [5.9538e-02 err.] pagerankRemove
+[00101.887 ms; 056 iters.] [0.0000e+00 err.] pagerankTeleport
+[00097.157 ms; 058 iters.] [2.1351e-01 err.] pagerankLoop
+[00097.048 ms; 058 iters.] [2.1359e-01 err.] pagerankLoopAll
+[00090.724 ms; 056 iters.] [4.5117e-02 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/soc-Epinions1.mtx ...
 order: 75888 size: 508837 {}
-[00077.465 ms; 054 iters.] [0.0000e+00 err.] pagerankTeleport
-[00072.218 ms; 059 iters.] [5.2695e-01 err.] pagerankLoop
-[00070.841 ms; 057 iters.] [5.3510e-01 err.] pagerankLoopAll
-[00060.464 ms; 059 iters.] [9.4374e-02 err.] pagerankRemove
+[00080.218 ms; 054 iters.] [0.0000e+00 err.] pagerankTeleport
+[00076.494 ms; 059 iters.] [5.2695e-01 err.] pagerankLoop
+[00074.669 ms; 057 iters.] [5.3510e-01 err.] pagerankLoopAll
+[00064.954 ms; 058 iters.] [5.9510e-02 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/coAuthorsDBLP.mtx ...
 order: 299067 size: 1955352 {}
-[00233.981 ms; 045 iters.] [0.0000e+00 err.] pagerankTeleport
-[00213.354 ms; 045 iters.] [0.0000e+00 err.] pagerankLoop
-[00219.342 ms; 045 iters.] [1.1444e-01 err.] pagerankLoopAll
-[00212.428 ms; 046 iters.] [5.7220e-06 err.] pagerankRemove
+[00244.560 ms; 045 iters.] [0.0000e+00 err.] pagerankTeleport
+[00228.191 ms; 045 iters.] [0.0000e+00 err.] pagerankLoop
+[00234.302 ms; 045 iters.] [1.1444e-01 err.] pagerankLoopAll
+[00227.415 ms; 045 iters.] [5.7220e-06 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/coAuthorsCiteseer.mtx ...
 order: 227320 size: 1628268 {}
-[00190.063 ms; 048 iters.] [0.0000e+00 err.] pagerankTeleport
-[00172.498 ms; 048 iters.] [0.0000e+00 err.] pagerankLoop
-[00176.898 ms; 047 iters.] [1.0301e-01 err.] pagerankLoopAll
-[00172.212 ms; 049 iters.] [8.2254e-06 err.] pagerankRemove
+[00195.117 ms; 048 iters.] [0.0000e+00 err.] pagerankTeleport
+[00183.647 ms; 048 iters.] [0.0000e+00 err.] pagerankLoop
+[00183.404 ms; 047 iters.] [1.0301e-01 err.] pagerankLoopAll
+[00181.729 ms; 048 iters.] [8.2254e-06 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/soc-LiveJournal1.mtx ...
 order: 4847571 size: 68993773 {}
-[11372.893 ms; 051 iters.] [0.0000e+00 err.] pagerankTeleport
-[12470.904 ms; 058 iters.] [3.6227e-01 err.] pagerankLoop
-[12322.073 ms; 057 iters.] [3.8861e-01 err.] pagerankLoopAll
-[10728.958 ms; 053 iters.] [6.7996e-02 err.] pagerankRemove
+[12019.400 ms; 051 iters.] [0.0000e+00 err.] pagerankTeleport
+[13563.278 ms; 058 iters.] [3.6227e-01 err.] pagerankLoop
+[13551.666 ms; 057 iters.] [3.8861e-01 err.] pagerankLoopAll
+[11926.444 ms; 052 iters.] [5.0604e-02 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/coPapersCiteseer.mtx ...
 order: 434102 size: 32073440 {}
-[02176.877 ms; 051 iters.] [0.0000e+00 err.] pagerankTeleport
-[02149.286 ms; 051 iters.] [0.0000e+00 err.] pagerankLoop
-[02173.768 ms; 051 iters.] [2.0145e-02 err.] pagerankLoopAll
-[02149.624 ms; 052 iters.] [1.3590e-05 err.] pagerankRemove
+[02303.855 ms; 051 iters.] [0.0000e+00 err.] pagerankTeleport
+[02275.931 ms; 051 iters.] [0.0000e+00 err.] pagerankLoop
+[02290.464 ms; 051 iters.] [2.0145e-02 err.] pagerankLoopAll
+[02271.882 ms; 051 iters.] [1.3590e-05 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/coPapersDBLP.mtx ...
 order: 540486 size: 30491458 {}
-[02071.249 ms; 049 iters.] [0.0000e+00 err.] pagerankTeleport
-[02045.521 ms; 049 iters.] [0.0000e+00 err.] pagerankLoop
-[02076.267 ms; 049 iters.] [2.3948e-02 err.] pagerankLoopAll
-[02038.573 ms; 050 iters.] [8.1065e-06 err.] pagerankRemove
+[02193.562 ms; 049 iters.] [0.0000e+00 err.] pagerankTeleport
+[02161.721 ms; 049 iters.] [0.0000e+00 err.] pagerankLoop
+[02186.465 ms; 049 iters.] [2.3948e-02 err.] pagerankLoopAll
+[02153.310 ms; 049 iters.] [8.1065e-06 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/indochina-2004.mtx ...
 order: 7414866 size: 194109311 {}
-[19076.410 ms; 061 iters.] [0.0000e+00 err.] pagerankTeleport
-[17499.078 ms; 059 iters.] [5.4354e-01 err.] pagerankLoop
-[15446.034 ms; 052 iters.] [5.2896e-01 err.] pagerankLoopAll
-[17195.377 ms; 063 iters.] [2.0391e-01 err.] pagerankRemove
+[19877.615 ms; 061 iters.] [0.0000e+00 err.] pagerankTeleport
+[18478.146 ms; 059 iters.] [5.4354e-01 err.] pagerankLoop
+[16253.481 ms; 052 iters.] [5.2896e-01 err.] pagerankLoopAll
+[18276.301 ms; 062 iters.] [3.0773e-01 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/italy_osm.mtx ...
 order: 6686493 size: 14027956 {}
-[04259.502 ms; 063 iters.] [0.0000e+00 err.] pagerankTeleport
-[03676.621 ms; 063 iters.] [0.0000e+00 err.] pagerankLoop
-[02107.681 ms; 034 iters.] [2.3343e-02 err.] pagerankLoopAll
-[03678.619 ms; 064 iters.] [1.4021e-02 err.] pagerankRemove
+[04577.356 ms; 063 iters.] [0.0000e+00 err.] pagerankTeleport
+[04169.610 ms; 063 iters.] [0.0000e+00 err.] pagerankLoop
+[02348.669 ms; 034 iters.] [2.3343e-02 err.] pagerankLoopAll
+[04171.958 ms; 063 iters.] [1.4021e-02 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/great-britain_osm.mtx ...
 order: 7733822 size: 16313034 {}
-[06647.793 ms; 067 iters.] [0.0000e+00 err.] pagerankTeleport
-[05886.423 ms; 067 iters.] [0.0000e+00 err.] pagerankLoop
-[03389.771 ms; 036 iters.] [4.8132e-02 err.] pagerankLoopAll
-[05882.346 ms; 068 iters.] [2.6316e-02 err.] pagerankRemove
+[06893.531 ms; 067 iters.] [0.0000e+00 err.] pagerankTeleport
+[06407.017 ms; 067 iters.] [0.0000e+00 err.] pagerankLoop
+[03652.827 ms; 036 iters.] [4.8132e-02 err.] pagerankLoopAll
+[06411.775 ms; 067 iters.] [2.6316e-02 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/germany_osm.mtx ...
 order: 11548845 size: 24738362 {}
-[10493.601 ms; 065 iters.] [0.0000e+00 err.] pagerankTeleport
-[09464.282 ms; 065 iters.] [0.0000e+00 err.] pagerankLoop
-[05599.456 ms; 036 iters.] [4.2308e-02 err.] pagerankLoopAll
-[09485.731 ms; 066 iters.] [7.0105e-02 err.] pagerankRemove
+[10925.186 ms; 065 iters.] [0.0000e+00 err.] pagerankTeleport
+[10171.923 ms; 065 iters.] [0.0000e+00 err.] pagerankLoop
+[06036.790 ms; 036 iters.] [4.2308e-02 err.] pagerankLoopAll
+[10181.795 ms; 065 iters.] [7.0105e-02 err.] pagerankRemove
 
 Loading graph /home/subhajit/data/asia_osm.mtx ...
 order: 11950757 size: 25423206 {}
-[08032.798 ms; 063 iters.] [0.0000e+00 err.] pagerankTeleport
-[06973.532 ms; 063 iters.] [0.0000e+00 err.] pagerankLoop
-[04081.784 ms; 035 iters.] [2.7216e-02 err.] pagerankLoopAll
-[06983.983 ms; 064 iters.] [6.8643e-02 err.] pagerankRemove
+[08205.264 ms; 063 iters.] [0.0000e+00 err.] pagerankTeleport
+[07459.272 ms; 063 iters.] [0.0000e+00 err.] pagerankLoop
+[04370.760 ms; 035 iters.] [2.7216e-02 err.] pagerankLoopAll
+[07457.504 ms; 063 iters.] [6.8643e-02 err.] pagerankRemove
