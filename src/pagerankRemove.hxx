@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <unordered_set>
+#include <algorithm>
 #include "_main.hxx"
 #include "copy.hxx"
 #include "transpose.hxx"
@@ -10,6 +11,7 @@
 
 using std::vector;
 using std::unordered_set;
+using std::reverse;
 
 
 
@@ -36,10 +38,12 @@ void pagerankRemoveCalculate(vector<T>& a, const G& xr, const H& xt, const J& ks
 template <class G, class T=float>
 PagerankResult<T> pagerankRemove(const G& x, const vector<T> *q=nullptr, PagerankOptions<T> o={}) {
   T p = o.damping;
-  auto xr = copy(x, [&](int u) { return !isDeadEnd(x, u); });
+  vector<int> ks;
+  auto xd = recursiveDeadEndsForEach(x, [&](int u) { ks.push_back(u); });
+  auto xr = copy(x, [&](int u) { return xd.count(u)==0; });
   auto a  = pagerankPlain(xr, q, o);
   auto xt = transposeWithDegree(x);
-  auto ks = deadEnds(x);
+  reverse(ks.begin(), ks.end());  // reverse order of dead ends!
   a.time += measureDuration([&] { pagerankRemoveCalculate(a.ranks, xr, xt, ks, p); }, o.repeat);
   multiplyValue(a.ranks, a.ranks, T(1)/coalesce(sum(a.ranks), T(1)));
   return a;

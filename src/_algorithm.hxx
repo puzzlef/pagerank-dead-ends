@@ -10,6 +10,7 @@ using std::unordered_map;
 using std::iterator_traits;
 using std::hash;
 using std::any_of;
+using std::all_of;
 using std::find;
 using std::find_if;
 using std::lower_bound;
@@ -32,6 +33,22 @@ auto anyOf(I ib, I ie, F fn) {
 template <class J, class F>
 auto anyOf(const J& x, F fn) {
   return any_of(x.begin(), x.end(), fn);
+}
+
+
+
+
+// ALL-OF
+// ------
+
+template <class I, class F>
+auto allOf(I ib, I ie, F fn) {
+  return all_of(ib, ie, fn);
+}
+
+template <class J, class F>
+auto allOf(const J& x, F fn) {
+  return all_of(x.begin(), x.end(), fn);
 }
 
 
