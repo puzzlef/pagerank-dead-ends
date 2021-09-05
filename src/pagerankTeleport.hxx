@@ -44,7 +44,7 @@ int pagerankTeleportLoop(vector<T>& a, vector<T>& r, vector<T>& c, const vector<
 template <class G>
 auto pagerankTeleportDynamicVertices(const G& x, const G& y) {
   auto [ks, n] = dynamicVertices(x, y);
-  auto fd = [&](int u) { return isDeadEnd(y, u); };
+  auto fd = [&](int u) { return isDeadEnd(x, u) || isDeadEnd(y, u); };
   if (any_of(ks.begin(), ks.begin()+n, fd)) n = ks.size();
   return make_pair(ks, n);
 }
