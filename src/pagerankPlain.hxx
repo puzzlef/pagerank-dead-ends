@@ -60,6 +60,7 @@ PagerankResult<T> pagerankPlainCore(const H& xt, const J& ks, int i, int n, FL f
   float t = measureDurationMarked([&](auto mark) {
     if (q) r = compressContainer(xt, *q, ks);
     else fill(r, T(1)/N);
+    multiplyValue(r, r, T(1)/coalesce(sum(r), T(1)));  // must sum to one (remove)!
     copy(a, r);  // copy old ranks
     if (N==0 || n==0) return;  // skip if nothing to do!
     mark([&] { pagerankFactor(f, vdata, 0, N, p); });
