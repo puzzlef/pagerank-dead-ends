@@ -17,13 +17,13 @@ using std::reverse;
 
 
 template <class G, class H, class J, class T>
-void pagerankRemoveCalculate(vector<T>& a, const G& xr, const H& xt, const J& ks, T p) {
+void pagerankRemoveCalculate(vector<T>& a, const G& x, const G& xr, const H& xt, const J& ks, T p) {
   a.resize(xt.span());  // ensure bounds!
   int N = coalesce(xr.order(), 1);  // can be empty!
   for (int u : ks) {
     a[u] = (1-p)/N;
     for (int v : xt.edges(u))
-      a[u] += (p/coalesce(xr.degree(v), 1)) * a[v];  // degree can be 0!
+      a[u] += (p/x.degree(v)) * a[v];
   }
 }
 
@@ -44,7 +44,7 @@ PagerankResult<T> pagerankRemove(const G& x, const vector<T> *q=nullptr, Pageran
   auto a  = pagerankPlain(xr, q, o);
   auto xt = transposeWithDegree(x);
   reverse(ks.begin(), ks.end());  // reverse order of dead ends!
-  a.time += measureDuration([&] { pagerankRemoveCalculate(a.ranks, xr, xt, ks, p); }, o.repeat);
+  a.time += measureDuration([&] { pagerankRemoveCalculate(a.ranks, x, xr, xt, ks, p); }, o.repeat);
   multiplyValue(a.ranks, a.ranks, T(1)/coalesce(sum(a.ranks), T(1)));
   return a;
 }
@@ -61,7 +61,7 @@ PagerankResult<T> pagerankRemoveDynamic(const G& x, const G& y, const vector<T> 
   auto a  = pagerankPlainDynamic(xr, yr, q, o);
   auto yt = transposeWithDegree(y);
   reverse(ks.begin(), ks.end());  // reverse order of dead ends!
-  a.time += measureDuration([&] { pagerankRemoveCalculate(a.ranks, yr, yt, ks, p); }, o.repeat);
+  a.time += measureDuration([&] { pagerankRemoveCalculate(a.ranks, y, yr, yt, ks, p); }, o.repeat);
   multiplyValue(a.ranks, a.ranks, T(1)/coalesce(sum(a.ranks), T(1)));
   return a;
 }
