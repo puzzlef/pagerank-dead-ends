@@ -11,8 +11,8 @@ using namespace std;
 
 template <class G>
 void runPagerank(const G& x, int repeat) {
-  vector<float> *init = nullptr;
-  PagerankOptions<float> o = {repeat};
+  vector<double> *init = nullptr;
+  PagerankOptions<double> o = {repeat};
 
   // Find pagerank by teleporting to a random vertex from every dead end.
   auto a1 = pagerankTeleport(x, init, o);
