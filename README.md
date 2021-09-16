@@ -38,12 +38,27 @@ are *scaled* to sum to 1. It is also important to note that each of the four
 approaches are *semantically different*, and thus the ranks computed by each
 approach is *different*.
 
-Interestingly, results indicate that **self-looping all** approach is on
-average the **fastest**, being `20%` (`1.25x`) faster than the *teleport*
-approach (which is the slowest). For *road networks*, **self-looping all**
-is about `50%` faster (`2x`) faster. Since **self-looping all** is the most
-*fair* approach (web pages that link temselves don't get any additional
-score), this gives good business incentives for being fair.
+With this experiment on *fixed graphs* (*static PageRank* only), there
+appears to only be a minor average performance difference between the dead end
+handling strategies. Both the **loop-all** and **remove** strategies seem to
+perform the best on average. It is important to note however that this varies
+depending upon the nature of the graph.
+
+Based on **GM-RATIO** comparison, the relative time for static PageRank
+computation between *teleport*, *loop*, *loop-all*, and *remove* strategies
+is `1.00 : 1.01 : 0.95 : 0.94`. Thus, *loop* is *1% slower (0.99x)* than
+*teleport*, *loop-all* is *5% faster (1.05x)* than *teleport*, and *remove* is
+*6% faster (1.06x)* than *teleport*. Here, *GM-RATIO* is obtained by taking the
+*geometric mean (GM)* of time taken for PageRank computation on all graphs,
+and then obtaining a ratio *relative* to the *teleport* strategy.
+
+Based on **AM-RATIO** comparison, the *relative time* for static PageRank
+computation between *teleport*, *loop*, *loop-all*, and *remove* is
+`1.00 : 1.02 : 0.95 : 0.97`. Hence, *loop* is *2% slower (0.98x)* than
+*teleport*, *loop-all* is *5% faster (1.05x)* than *teleport*, and *remove*
+is *3% faster (1.03x)* than *teleport*. *AM-RATIO* is obtained in a process
+similar to that of *GM-RATIO*, except that *arithmetic mean (AM)* is used
+instead of GM.
 
 All outputs are saved in [out](out/) and a small part of the output is listed
 here. Some [charts] are also included below, generated from [sheets]. The input
@@ -96,12 +111,13 @@ $ ...
 <br>
 <br>
 
-[![](https://i.imgur.com/OYgHdIu.jpg)](https://www.youtube.com/watch?v=5SKaxCzenc0)
+[![](https://i.imgur.com/lbSSW9m.jpg)](https://www.youtube.com/watch?v=cGadX6kAYZk)
 
 [Prof. Dip Sankar Banerjee]: https://sites.google.com/site/dipsankarban/
 [Prof. Kishore Kothapalli]: https://cstar.iiit.ac.in/~kkishore/
 [SuiteSparse Matrix Collection]: https://suitesparse-collection-website.herokuapp.com
 ["graphs"]: https://github.com/puzzlef/graphs
+[STICD paper]: https://www.slideshare.net/SubhajitSahu/sticd-algorithmic-techniques-for-efficient-parallel-pagerank-computation-on-realworld-graphs
 [pull]: https://github.com/puzzlef/pagerank-push-vs-pull
 [CSR]: https://github.com/puzzlef/pagerank-class-vs-csr
 [charts]: https://photos.app.goo.gl/KccG7WLmJVBXsZBeA
