@@ -4,7 +4,7 @@ const path = require('path');
 
 const RGRAPH = /^Loading graph .*\/(.*?)\.mtx \.\.\./m;
 const RORDER = /^order: (\d+) size: (\d+) \{\}/m;
-const RRESLT = /^\[(.+?) ms; (\d+) iters\.\] \[(.+?) err\.\] (\w+)/m;
+const RRESLT = /^\[(.+?) ms; (\d+) iters\.\] \[(.+?) err\.; .+? sum\] (\w+)/m;
 
 
 
