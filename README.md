@@ -60,6 +60,31 @@ is *3% faster (1.03x)* than *teleport*. *AM-RATIO* is obtained in a process
 similar to that of *GM-RATIO*, except that *arithmetic mean (AM)* is used
 instead of GM.
 
+For graphs with a large number of vertices, such as *soc-LiveJournal1*,
+*indochina-2004*, *italy_osm*, *great-britain_osm*, *germany_osm*, and
+*asia_osm*, it is observed that the *total sum of ranks* of vertices is
+*not* close to `1` when **32-bit (float) floating point format** is used for
+*rank of each vertex*. This is likely due to **precision issues**, as a
+similar effect is not observed when *64-bit (double) floating point format*
+is used for *vertex ranks*.
+
+Additionally, this sum also varies between *teleport/loop* and *remove*
+strategies when *32-bit floating point format* is used for *vertex ranks*
+on *symmetric (undirected) graphs* such as *italy_osm*, *great-britain_osm*,
+*germany_osm*, and *asia_osm*. Again, this is *not* observed when
+*64-bit floating point format* is used for *rank of each vertex*. Ideally,
+this sum should *not vary* between the strategies. This is because there
+are no dead ends in an undirected graph, and thus the scaling factor for
+the *remove* strategy is `1/sum(R) ≈ 1/1 ≈ 1`, where `R` is the *rank vector*
+after PageRank computation (which is the same for *teleport*, *loop*, and
+*remove* strategies on *undirected graphs*).
+
+Thus, this difference between the sums among the *teleport/loop* and
+*remove* strategies when using *32-bit floating point format* for *ranks*
+is due to the same *precision issues* mentioned above associated with the
+additional *rank scaling* performed with the *remove* strategy (in order
+to ensure that the sum of ranks is 1 after computing ranks of dead ends).
+
 All outputs are saved in [out](out/) and a small part of the output is listed
 here. Some [charts] are also included below, generated from [sheets]. The input
 data used for this experiment is available at ["graphs"] (for small ones), and
