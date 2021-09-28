@@ -38,13 +38,6 @@ are *scaled* to sum to 1. It is also important to note that each of the four
 approaches are *semantically different*, and thus the ranks computed by each
 approach is *different*.
 
-Interestingly, results indicate that **self-looping all** approach is on
-average the **fastest**, being `20%` (`1.25x`) faster than the *teleport*
-approach (which is the slowest). For *road networks*, **self-looping all**
-is about `50%` faster (`2x`) faster. Since **self-looping all** is the most
-*fair* approach (web pages that link temselves don't get any additional
-score), this gives good business incentives for being fair.
-
 All outputs are saved in [out](out/) and a small part of the output is listed
 here. Some [charts] are also included below, generated from [sheets]. The input
 data used for this experiment is available at ["graphs"] (for small ones), and
