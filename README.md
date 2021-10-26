@@ -1,4 +1,4 @@
-Comparing various strategies of **handling dead ends** for *dynamic PageRank* ([pull], [CSR]).
+Comparing various strategies of **handling dead ends** for *incremental/dynamic PageRank* ([pull], [CSR]).
 
 There are four ways **handling dead ends** for PageRank calculation.
 1. Always **teleport** from dead ends.
@@ -26,11 +26,7 @@ Based on **GM-RATIO** comparison, the relative time for **static PageRank** comp
 
 Based on **AM-RATIO** comparison, the *relative time* for **static PageRank** computation between *teleport*, *loop*, *loop-all*, and *remove* is `1.00 : 0.92 : 0.87 : 0.71` (all batch sizes). Hence, *loop* is *8% faster (1.09x)* than *teleport*, *loop-all* is *13% faster (1.15x)* than *teleport*, and *remove* is *29% faster (1.41x)* than *teleport*. Similarly, the relative time for **incremental PageRank** computation between the strategies is `0.89 : 0.75 : 0.74 : 0.65`. Hence, *loop* is *16% faster (1.19x)* than *teleport*, *loop* is *17% faster (1.20x)* than *teleport*, and *remove* is *27% faster (1.37x)* than *teleport*. Again, the relative time for **dynamic PageRank** computation between the strategies is `0.85 : 0.71 : 0.72 : 0.65`. Hence, *loop* is *16% faster (1.20x)* than *teleport*, *loop* is *15% faster (1.18x)* than *teleport*, and *remove* is *24% faster (1.31x)* than *teleport*. *AM-RATIO* is obtained in a process similar to that of *GM-RATIO*, except that *arithmetic mean (AM)* is used instead of GM.
 
-All outputs are saved in [out](out/) and a small part of the output is listed
-here. Some [charts] are also included below, generated from [sheets]. The input
-data used for this experiment is available at ["graphs"] (for small ones), and
-the [SuiteSparse Matrix Collection]. This experiment was done with guidance
-from [Prof. Dip Sankar Banerjee] and [Prof. Kishore Kothapalli].
+All outputs are saved in [out](out/) and a small part of the output is listed here. Some [charts] are also included below, generated from [sheets]. The input data used for this experiment is available at ["graphs"] (for small ones), and the [SuiteSparse Matrix Collection]. This experiment was done with guidance from [Prof. Dip Sankar Banerjee] and [Prof. Kishore Kothapalli].
 
 <br>
 
